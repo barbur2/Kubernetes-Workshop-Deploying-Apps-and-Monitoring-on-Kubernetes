@@ -1,5 +1,5 @@
-## Kubernetes WordPress Deployment with Monitoring
-# 📌 Overview
+# Kubernetes WordPress Deployment with Monitoring
+## 📌 Overview
 This project migrates the WordPress + MySQL stack from Docker Compose into Kubernetes.
 It also adds an NGINX Ingress Controller for routing and a Grafana/Prometheus stack for monitoring.
 Definition of Done:
@@ -9,7 +9,7 @@ Grafana dashboard shows container uptime metrics.
 All Kubernetes manifests are included in this repo (mysql.yaml, wordpress.yaml).
 Clear deployment steps provided.
 
-#🚀 Deployment Steps
+## 🚀 Deployment Steps
 1. Prerequisites
 EC2 instance with Minikube installed.
 AWS ECR with mysql:latest and wordpress:latest images pushed.
@@ -66,6 +66,7 @@ Get admin password:
 kubectl -n monitoring get secret kube-prometheus-stack-grafana \
   -o jsonpath="{.data.admin-password}" | base64 -d ; echo
 Default username: admin
+
 8. Create Grafana Dashboard
 Go to Dashboards → New → New Panel.
 Select Prometheus data source.
@@ -74,13 +75,13 @@ kube_pod_container_status_running
 This shows if containers are up (1) or down (0).
 Save dashboard as WordPress Monitoring.
 
-#📂 Repository Structure
+## 📂 Repository Structure
 .
 ├── mysql.yaml         # MySQL StatefulSet, PVC, Service
 ├── wordpress.yaml     # WordPress Deployment, Service, Ingress
 └── README.md          # Deployment instructions
 
-#✅ Result
+## ✅ Result
 WordPress reachable at http://wordpress.local
 Persistent MySQL database
 Grafana dashboard with uptime panel
